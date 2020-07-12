@@ -3,7 +3,7 @@ go get -u github.com/jvehent/pineapple
 $GOPATH/bin/pineapple <<EOF
 aws:
     region: us-east-1
-    accountnumber: 927034868273
+    accountnumber: 571837724543
 
 components:
     - name: load-balancer
@@ -14,7 +14,7 @@ components:
 
     - name: application
       type: ec2
-      tag: 
+      tag:
           key: elasticbeanstalk:environment-name
           value: invoicer-api
 
