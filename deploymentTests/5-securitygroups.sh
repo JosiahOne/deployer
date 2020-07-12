@@ -22,7 +22,7 @@ components:
       type: rds
       tag:
           key: environment-name
-          value: invoicer-api
+          value: invoicer-db
 
 #    - name: bastion
 #      type: ec2
@@ -33,7 +33,7 @@ components:
 rules:
     - src: 0.0.0.0/0
       dst: load-balancer
-      dport: 443
+      dport: 80
 
     - src: load-balancer
       dst: application
