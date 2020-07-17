@@ -1,11 +1,11 @@
 #!/bin/bash
-grants="$(psql -U deployer \
-        -h invoicer201605211320.czvvrkdqhklf.us-east-1.rds.amazonaws.com -p 5432 \
+grants="$(psql -U invoicer \
+        -h invoicer-db.csljudp1xns5.us-east-1.rds.amazonaws.com -p 5432 \
         invoicer -c '
-COPY ( 
+COPY (
     SELECT oid::regclass, acl.privilege_type
     FROM pg_class, aclexplode(relacl) AS acl
-    WHERE relacl IS NOT null AND acl.grantee=16431
+    WHERE relacl IS NOT null AND acl.grantee=16439
 ) TO STDOUT WITH CSV ')"
 
 EXPECTEDGRANTS=(
